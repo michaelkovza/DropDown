@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import DropDown from "./components/DropDown";
 
@@ -63,11 +63,35 @@ const food: Content[] = [
   }
 ];
 
-const App = () => (
-  <>
-    <DropDown content={movies} title="Movies:" />
-    <DropDown width={300} content={food} title="Food:" />
-  </>
-);
+const App = () => {
+  const [counter, setCounter] = useState<number>(6);
+
+  const renderDropDowns = () => {
+    return Array.from({ length: counter }, (item: number) => {
+      const content =
+        Math.random() > 0.5
+          ? { title: "Movies", content: movies, width: 300 }
+          : { title: "Food", content: food };
+
+      return (
+        <DropDown
+          key={_id++}
+          title={content.title}
+          content={content.content}
+          width={content.width}
+        />
+      );
+    });
+  };
+
+  return (
+    <>
+      <button onClick={() => setCounter(counter + 1)}>
+        Add random DropDown
+      </button>
+      <div>{renderDropDowns()}</div>
+    </>
+  );
+};
 
 ReactDOM.render(<App />, document.getElementById("root"));
