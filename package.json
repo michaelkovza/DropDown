@@ -29,7 +29,6 @@
     "start": "parcel ./src/index.html",
     "build": "parcel build ./src/index.html --public-url ./",
     "format": "prettier --write \"src/**/*.{ts,tsx,pcss,json}\"",
-    "deploy": "git subtree push --prefix dist origin master",
     "lint": "tslint --project"
   }
 }
