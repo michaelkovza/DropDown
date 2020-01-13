@@ -27,7 +27,7 @@
   },
   "scripts": {
     "start": "parcel ./src/index.html",
-    "build": "parcel build ./src/index.html --public-url ./ --out-dir ./",
+    "build": "parcel build ./src/index.html --public-url ./",
     "format": "prettier --write \"src/**/*.{ts,tsx,pcss,json}\"",
     "lint": "tslint --project"
   }
